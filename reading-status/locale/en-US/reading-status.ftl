@@ -1,0 +1,14 @@
+reading-status-menu =
+    .label = Reading Status
+reading-status-toread =
+    .label = To Read
+reading-status-pass1 =
+    .label = Reading: Pass 1
+reading-status-pass2 =
+    .label = Reading: Pass 2
+reading-status-pass3 =
+    .label = Reading: Pass 3
+reading-status-done =
+    .label = Read / Completed
+reading-status-clear =
+    .label = Clear Status
