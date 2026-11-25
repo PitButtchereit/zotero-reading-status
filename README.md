@@ -2,11 +2,11 @@
 
 Minimal Zotero plugin (Zotero 8–10) to track where you are with a paper:
 
-**To Read → Reading: Pass 1 → Pass 2 → Pass 3 → Read / Completed**
+**To Read → Reading: Pass 1 → Pass 2 → Pass 3 → Completed**
 
 - Set status via right-click → **Reading Status** (works on multiple items)
 - Color-coded, sortable **Reading Status** column in the item list
-- Stored as a `Reading Status: …` line in the item's **Extra** field → syncs, survives uninstall, searchable
+- Stored as a `Reading Status: <key>` line (e.g. `pass1`) in the item's **Extra** field → syncs, survives uninstall, searchable
 
 ## Install
 
@@ -34,3 +34,11 @@ git tag v1.0.1 && git push origin v1.0.1
 ## License
 
 MIT
+
+## Changing labels / colors
+
+Edit both:
+- `reading-status/bootstrap.js` → `STATUSES` (`label`, `color`) – column text
+- `reading-status/locale/en-US/reading-status.ftl` – right-click menu text
+
+Don't change the `key` values: they're what's stored in your items.

@@ -17,7 +17,7 @@ jobs:
         run: |
           VERSION="${GITHUB_REF_NAME#v}"
           cd reading-status
-          jq --arg v "$VERSION" '.version = $v' manifest.json > m.tmp && mv m.tmp manifest.json
+          jq --arg v "$VERSION" '.version = $v' manifest.json > m.tmp && mv m.tmp manifest.jsonx
           zip -r ../reading-status.xpi manifest.json bootstrap.js locale
           cd ..
           ID=$(jq -r '.applications.zotero.id' reading-status/manifest.json)

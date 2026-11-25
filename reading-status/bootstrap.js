@@ -4,11 +4,11 @@ var PREFIX = "Reading Status: ";
 var LINE_RE = /^Reading Status:\s*(.*)$/im;
 
 var STATUSES = [
-  { key: "toread", label: "To Read",          color: "#8e8e93" },
-  { key: "pass1",  label: "Reading: Pass 1",  color: "#e67e22" },
-  { key: "pass2",  label: "Reading: Pass 2",  color: "#d4ac0d" },
-  { key: "pass3",  label: "Reading: Pass 3",  color: "#3498db" },
-  { key: "done",   label: "Read / Completed", color: "#27ae60" },
+  { key: "toread", label: "To Read", color: "#8e8e93" },
+  { key: "pass1", label: "Pass 1", color: "#e67e22" },
+  { key: "pass2", label: "Pass 2", color: "#d4ac0d" },
+  { key: "pass3", label: "Pass 3", color: "#3498db" },
+  { key: "done", label: "Completed", color: "#27ae60" },
 ];
 
 var menuID = null;
@@ -19,13 +19,13 @@ function getStatus(item) {
   var m = (item.getField("extra") || "").match(LINE_RE);
   if (!m) return null;
   var v = m[1].trim().toLowerCase();
-  return STATUSES.find(s => s.label.toLowerCase() === v || s.key === v) || null;
+  return STATUSES.find((s) => s.key === v) || null;
 }
 
 async function setStatus(item, status) {
   if (!item.isRegularItem()) return;
   var extra = (item.getField("extra") || "").replace(/^Reading Status:.*(\r?\n)?/im, "").replace(/\s+$/, "");
-  if (status) extra = PREFIX + status.label + (extra ? "\n" + extra : "");
+  if (status) extra = PREFIX + status.key + (extra ? "\n" + extra : "");
   if (extra === (item.getField("extra") || "")) return;
   item.setField("extra", extra);
   await item.saveTx();
