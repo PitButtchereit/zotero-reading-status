@@ -23,14 +23,6 @@ Updates install automatically through Zotero's plugin updater.
 cd reading-status && zip -r ../reading-status.xpi manifest.json bootstrap.js locale
 ```
 
-## Release
-
-Push a version tag; GitHub Actions builds the `.xpi` and attaches it (plus `updates.json`) to a release:
-
-```bash
-git tag v1.0.1 && git push origin v1.0.1
-```
-
 ## License
 
 MIT
